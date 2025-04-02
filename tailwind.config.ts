@@ -1,18 +1,22 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 
-export default {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+const config: Config = {
+  content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily: {
+        francois: ['"Francois One"', 'sans-serif'],
+        instrumentSans: ['"Instrument Sans"', 'sans-serif'],
+        instrumentSerif: ['"Instrument Serif"', 'serif'],
+        reeniebeanie: ['"Reenie Beanie"', 'cursive'],
+        silkscreen: ['"Silkscreen"', 'sans-serif'],
+      },
+      backgroundImage: {
+        paper: "url('/paper.webp')",
       },
     },
   },
   plugins: [],
-} satisfies Config;
+};
+
+export default config;
