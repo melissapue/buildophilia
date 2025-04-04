@@ -112,8 +112,20 @@ export default function Journey() {
   ];
 
   return (
-    <SlideContainer background={slides[slideIndex].background}>
-      {slides[slideIndex].component}
-    </SlideContainer>
+    <div className="relative w-full h-full">
+      {slideIndex > 0 && (
+        <button
+          onClick={goBack}
+          className="absolute bottom-6 left-6 z-50 font-reeniebeanie text-white text-3xl sm:text-4xl hover:opacity-80 transition-all"
+          aria-label="Go Back"
+        >
+          ←
+        </button>
+      )}
+
+      <SlideContainer background={slides[slideIndex].background}>
+        {slides[slideIndex].component}
+      </SlideContainer>
+    </div>
   );
 }
