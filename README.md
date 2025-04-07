@@ -1,97 +1,73 @@
-# 🧠 OPHILIA — From Idea to Impact
+# 🧠 Ophilia – AI Branding Assistant for Creative Minds
 
-### _Your Branding Visionary_
+**Ophilia** is a full-stack AI-powered branding assistant designed for startup founders, makers, and creatives.  
+It helps users shape their vision, brand identity, and storytelling with a psychology-informed interface and fun, sketch-inspired UX.
 
----
-
-## 🔮 Description
-
-**Ophilia** is a full-stack AI-powered branding assistant built for creative minds. It helps startup founders and creatives shape their vision, brand identity, and storytelling with an intuitive, psychology-informed interface.
-
-Ophilia guides users through a playful yet powerful branding journey—transforming ideas into impactful narratives.
+Ophilia guides users through a playful yet powerful branding journey—transforming early-stage ideas into impactful narratives.
 
 ---
 
 ## ✨ Features
 
-- 🌱 Interactive, scroll-based branding questionnaire
-- 🖌️ Sketch-style interface with subtle animations
+- 🌱 Interactive, scroll-based branding journey
+- 🖌️ Sketch-style UI with animations and a pencil cursor
 - 🔐 Custom-built user authentication (no next-auth)
-- 🧠 Personal branding dashboard for saving progress
+- 🧠 Personal dashboard with saved results
 - 📁 REST API connecting frontend and backend
 - 📊 PostgreSQL database for user-generated content
-- 📱 Fully responsive design (desktop + mobile)
-- 🎨 Framer-inspired UI with Tailwind styling
+- 📱 Fully responsive design (mobile + desktop)
+- 🎨 TailwindCSS + Framer-inspired transitions
 
 ---
 
 ## 💻 Tech Stack
 
-| Frontend             | Backend             | Testing             | Other              |
-| -------------------- | ------------------- | ------------------- | ------------------ |
-| Next.js (App Router) | Node.js + Express   | Playwright (E2E)    | TailwindCSS        |
-| TypeScript           | PostgreSQL + Prisma | Vitest (Unit Tests) | Zod (Validation)   |
-| Framer Motion        | REST API            |                     | Custom Auth        |
-| React Hook Form      |                     |                     | Deployed on Vercel |
+| Frontend             | Backend              | Testing             | Other              |
+| -------------------- | -------------------- | ------------------- | ------------------ |
+| Next.js (App Router) | PostgreSQL + Prisma  | Playwright (E2E)    | Zod (Validation)   |
+| TypeScript           | Node.js (API Routes) | Vitest (Unit Tests) | TailwindCSS        |
+| React Hook Form      | REST API             |                     | Deployed on Vercel |
+| Framer Motion        |                      |                     | Custom Auth        |
 
 ---
 
 ## 📸 Screenshots
 
-> _(Add 2–3 screenshots here later)_  
-> Example: Hero section, sketch page, questionnaire slide
-
 ---
 
 ## 📐 Database Schema
 
-Schema designed via [DrawSQL](https://drawsql.app/)  
-🔗 _Add your schema link here_
+Schema designed via [DrawSQL](#)
 
 ---
 
-## ✅ MVP Bootcamp Requirements Checklist
+## ✅ MVP Bootcamp Checklist
 
 - [x] Frontend code
 - [x] Backend code
 - [x] REST API
-- [x] PostgreSQL database with user-generated content
+- [x] PostgreSQL database
 - [x] Zod server-side validation
 - [x] User authentication (register + login)
 - [x] User authorization
 - [x] 12+ TypeScript files
 - [x] Custom favicon
-- [x] End-to-end tests
+- [x] E2E tests
 - [x] Unit tests
-- [x] Deployed project
-- [x] README with description, tech, and screenshots
+- [x] Deployment
+- [x] README with tech + screenshots
 
 ---
 
 ## 🔭 Stretch Goals
 
-- [ ] Brand Evolution AI Lite (learns from past user input)
-- [ ] Logged-out UX (enter brand info before logging in)
-- [ ] Pencil cursor + paper texture on sketch section
-- [ ] Advanced SEO & meta tags
-- [ ] State management (valtio or Zustand)
-- [ ] Dynamic caching optimization
+- 🧠 Brand Evolution AI Lite (remembers & improves user input)
+- 👻 Logged-out UX: start the journey without being logged in
+- ✏️ Pencil cursor + subtle paper texture
+- 🧠 Advanced SEO & meta tags
+- 📦 State management (Zustand or Valtio)
+- 🚀 Caching / performance optimization
 
 ---
 
-## 🚀 Deployment
-
-🔗 https://ophilia.vercel.app/  
-Environment variables securely stored on Vercel
-
----
-
-## 🧪 Testing
-
-```bash
-# Unit tests
-pnpm test
-
-# End-to-end tests
-pnpm e2e
-```
+💌 Let me know if you want me to plug in your actual DrawSQL link, add screenshot placeholders, or prep this for GitHub copy-paste. You're basically _presentable, launchable, and unstoppable._ 🧃🚀
