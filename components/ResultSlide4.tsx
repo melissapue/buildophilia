@@ -1,25 +1,15 @@
 'use client';
 
-import { moodStyleMap } from '@/lib/moodStyleMap';
-
-interface ResultSlide4Props {
-  keywords: string[];
-  mood?: string;
-}
-
-export default function ResultSlide4({ keywords, mood }: ResultSlide4Props) {
-  const style = moodStyleMap[mood ?? 'default'];
-
+export default function ResultSlide4() {
   return (
     <div
-      className="w-full h-full flex flex-col sm:flex-row justify-between items-center px-6 sm:px-20 py-12 gap-12"
+      className="fixed inset-0 w-screen h-screen flex flex-col sm:flex-row justify-between items-center px-6 sm:px-20 py-12 gap-12 overflow-hidden"
       style={{
-        backgroundColor: style.background,
-        color: style.textColor,
+        backgroundColor: '#0099FF',
+        color: '#F5F5F5',
       }}
     >
-      {/* Left: Label title */}
-      <div className="text-[4rem] sm:text-[6rem] font-reeniebeanie leading-[1.1] text-left whitespace-pre-wrap sm:pl-24 sm:-ml-2">
+      <div className="text-[6rem] sm:text-[9rem] font-reeniebeanie leading-[1.05] text-left whitespace-pre-wrap sm:pl-28 sm:-ml-2">
         THE
         <br />
         SWEET
@@ -27,21 +17,12 @@ export default function ResultSlide4({ keywords, mood }: ResultSlide4Props) {
         SPOT
       </div>
 
-      {/* Right: keyword pills */}
-      <div className="flex flex-wrap gap-3 max-w-md sm:max-w-lg mt-8 sm:mt-0">
-        {keywords.map((word, index) => (
-          <span
-            key={index}
-            className={`px-4 py-2 rounded-full border font-${style.bodyFont}`}
-            style={{
-              borderColor: style.textColor,
-              color: style.textColor,
-              backgroundColor: 'transparent',
-            }}
-          >
-            {word}
-          </span>
-        ))}
+      <div className="flex flex-col justify-center items-start space-y-4 max-w-md sm:max-w-lg w-full text-left mt-8 sm:mt-0">
+        <p className="text-base sm:text-lg leading-relaxed font-instrumentSans">
+          Ophilia isn't just about branding. It listens. It reframes. It asks
+          the deeper questions most startups skip. It turns inner chaos into
+          outer clarity — through language, design, and intuition.
+        </p>
       </div>
     </div>
   );

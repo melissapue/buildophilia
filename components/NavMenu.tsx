@@ -7,7 +7,6 @@ import { useState } from 'react';
 export default function NavMenu() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Dynamic styling based on isOpen
   const logoColor = isOpen ? 'text-white' : 'text-[#FF2725]';
   const dotColor = isOpen ? 'bg-white' : 'bg-[#FF2725]';
 

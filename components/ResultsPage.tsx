@@ -1,3 +1,4 @@
+// --- components/ResultsPage.tsx ---
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -12,12 +13,13 @@ export default function ResultsPage() {
   const [slideIndex, setSlideIndex] = useState(0);
 
   const resultData = {
-    brandName: 'Hex & Co.',
-    brandTagline: 'Turning chaos into clarity — one spell at a time.',
-    tone: 'Mystical, precise, bold',
-    keywords: ['Ritual', 'Founders', 'Transformation'],
-    origin: 'Born from late-night dreams and coffee-stained notebooks...',
-    mood: 'Focused magic',
+    brandName: 'Ophilia',
+    brandTagline: 'From Idea to Impact — Where Creativity Finds Its Flow.',
+    tone: 'Direct, imaginative, emotionally intelligent—with a touch of fire and flow.',
+    keywords: ['Clarity', 'Transformation', 'Empowerment'],
+    origin:
+      'Born from founder frustration. Built by a creative mind, for creative minds.',
+    mood: 'Clean, bold, slightly nostalgic. A modern take on early internet creativity with a rebellious edge.',
   };
 
   const resultSlides = [
@@ -40,7 +42,6 @@ export default function ResultsPage() {
     if (slideIndex > 0) setSlideIndex(slideIndex - 1);
   };
 
-  // Optional: keyboard arrows (can be removed if not wanted)
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === 'ArrowRight') goNext();
@@ -53,7 +54,6 @@ export default function ResultsPage() {
 
   return (
     <div className="relative w-screen h-screen bg-[#FAFAF9] text-[#FF2725] px-6 py-12">
-      {/* ← Back Arrow */}
       {slideIndex > 0 && (
         <button
           onClick={goBack}
@@ -64,7 +64,6 @@ export default function ResultsPage() {
         </button>
       )}
 
-      {/* → Next Arrow */}
       {slideIndex < resultSlides.length - 1 && (
         <button
           onClick={goNext}
@@ -75,7 +74,6 @@ export default function ResultsPage() {
         </button>
       )}
 
-      {/* Current Slide */}
       <div className="h-full flex items-center justify-center">
         {resultSlides[slideIndex]}
       </div>

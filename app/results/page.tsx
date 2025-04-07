@@ -1,4 +1,4 @@
-import ResultsPage from '@/components/ResultsPage'; // ✅ not ResultIntro!
+import ResultsPage from '../../components/ResultsPage';
 
 export default function ResultsRoute() {
   return <ResultsPage />;

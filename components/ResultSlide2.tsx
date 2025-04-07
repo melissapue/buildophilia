@@ -1,25 +1,15 @@
 'use client';
 
-import { moodStyleMap } from '@/lib/moodStyleMap';
-
-interface ResultSlide2Props {
-  tone: string;
-  mood?: string;
-}
-
-export default function ResultSlide2({ tone, mood }: ResultSlide2Props) {
-  const style = moodStyleMap[mood ?? 'default'];
-
+export default function ResultSlide2() {
   return (
     <div
-      className="w-full h-full flex flex-col sm:flex-row justify-between items-center px-6 sm:px-20 py-12 gap-12"
+      className="fixed inset-0 w-screen h-screen flex flex-col sm:flex-row justify-between items-center px-6 sm:px-20 py-12 gap-12 overflow-hidden"
       style={{
-        backgroundColor: style.background,
-        color: style.textColor,
+        backgroundColor: '#FF850A',
+        color: '#F5F5F5',
       }}
     >
-      {/* Left: title, sketch-style */}
-      <div className="text-[4rem] sm:text-[6rem] font-reeniebeanie leading-[1.1] text-left whitespace-pre-wrap sm:pl-28 sm:-ml-2">
+      <div className="text-[6rem] sm:text-[9rem] font-reeniebeanie leading-[1.05] text-left whitespace-pre-wrap sm:pl-28 sm:-ml-2">
         THE
         <br />
         NAME
@@ -29,16 +19,12 @@ export default function ResultSlide2({ tone, mood }: ResultSlide2Props) {
         STICKS
       </div>
 
-      {/* Right: Tone / Voice summary */}
       <div className="flex flex-col justify-center items-start space-y-4 max-w-md sm:max-w-lg w-full text-left mt-8 sm:mt-0">
-        <h3 className="text-sm sm:text-base font-silkscreen uppercase tracking-wider opacity-80">
-          You sound like...
-        </h3>
-
-        <p
-          className={`text-base sm:text-lg leading-relaxed font-${style.bodyFont}`}
-        >
-          {tone}
+        <p className="text-base sm:text-lg leading-relaxed font-instrumentSans">
+          “Ophilia” is a reinterpretation of the tragic — a name rooted in
+          softness, madness, and beauty reclaimed. It’s about giving power to
+          emotion. Feminine but sharp. A name that remembers, reframes, and
+          reclaims.
         </p>
       </div>
     </div>

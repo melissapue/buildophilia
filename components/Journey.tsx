@@ -1,6 +1,9 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import ResultsIntro from './ResultsIntro';
+import ResultsPage from './ResultsPage';
 import Slide1 from './Slide1';
 import Slide2 from './Slide2';
 import Slide3 from './Slide3';
@@ -10,24 +13,28 @@ import SlideConfirm from './SlideConfirm';
 import SlideContainer from './SlideContainer';
 import SlideWelcome from './SlideWelcome';
 
+// Define the shape of a generated result so TS + ESLint chill out
+export type ResultType = {
+  brandName: string;
+  tagline: string;
+  tone: string;
+  origin: string;
+  powerStatement: string;
+  keywords: string[];
+};
+
 export default function Journey() {
   const [slideIndex, setSlideIndex] = useState(0);
-
   const [formData, setFormData] = useState({
     brandName: '',
     description: '',
     audience: '',
     tone: '',
     extra: '',
+    mood: '',
   });
-
-  const goNext = () => {
-    if (slideIndex < slides.length - 1) setSlideIndex(slideIndex + 1);
-  };
-
-  const goBack = () => {
-    if (slideIndex > 0) setSlideIndex(slideIndex - 1);
-  };
+  const [result, setResult] = useState<ResultType | null>(null);
+  const router = useRouter();
 
   const updateField = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -35,7 +42,7 @@ export default function Journey() {
 
   const slides = [
     {
-      component: <SlideWelcome onNext={goNext} />,
+      component: <SlideWelcome onNext={() => setSlideIndex(slideIndex + 1)} />, // 0
       background: '#FAFAF9',
       navTitle: 'O P :',
     },
@@ -44,8 +51,8 @@ export default function Journey() {
         <Slide1
           value={formData.brandName}
           onChange={(v) => updateField('brandName', v)}
-          onNext={goNext}
-          onBack={goBack}
+          onNext={() => setSlideIndex(slideIndex + 1)}
+          onBack={() => setSlideIndex(slideIndex - 1)}
         />
       ),
       background: '#161616',
@@ -56,8 +63,8 @@ export default function Journey() {
         <Slide2
           value={formData.description}
           onChange={(v) => updateField('description', v)}
-          onNext={goNext}
-          onBack={goBack}
+          onNext={() => setSlideIndex(slideIndex + 1)}
+          onBack={() => setSlideIndex(slideIndex - 1)}
         />
       ),
       background: '#57171E',
@@ -68,8 +75,8 @@ export default function Journey() {
         <Slide3
           value={formData.audience}
           onChange={(v) => updateField('audience', v)}
-          onNext={goNext}
-          onBack={goBack}
+          onNext={() => setSlideIndex(slideIndex + 1)}
+          onBack={() => setSlideIndex(slideIndex - 1)}
         />
       ),
       background: '#C93200',
@@ -80,8 +87,8 @@ export default function Journey() {
         <Slide4
           value={formData.tone}
           onChange={(v) => updateField('tone', v)}
-          onNext={goNext}
-          onBack={goBack}
+          onNext={() => setSlideIndex(slideIndex + 1)}
+          onBack={() => setSlideIndex(slideIndex - 1)}
         />
       ),
       background: '#094200',
@@ -92,8 +99,10 @@ export default function Journey() {
         <Slide5
           value={formData.extra}
           onChange={(v) => updateField('extra', v)}
-          onNext={goNext}
-          onBack={goBack}
+          onNext={() => setSlideIndex(slideIndex + 1)}
+          onBack={() => setSlideIndex(slideIndex - 1)}
+          formData={formData}
+          setResult={setResult}
         />
       ),
       background: '#0A00CF',
@@ -102,12 +111,22 @@ export default function Journey() {
     {
       component: (
         <SlideConfirm
-          onGetResults={() => console.log('Go to results')}
-          onCreateAccount={() => console.log('Go to signup')}
+          onGetResults={() => setSlideIndex(slideIndex + 1)}
+          onCreateAccount={() => router.push('/signup?redirect=/journey')}
         />
       ),
       background: '#FF2725',
       navTitle: 'O P :',
+    },
+    {
+      component: <ResultsIntro onSkip={() => setSlideIndex(slideIndex + 1)} />,
+      background: '#FAFAF9',
+      navTitle: 'O P :',
+    },
+    {
+      component: <ResultsPage result={result ?? undefined} />, // ✅ cast null fallback to undefined to match prop type
+      background: '#FFFFFF',
+      navTitle: 'O P : R E S U L T S',
     },
   ];
 
@@ -115,7 +134,7 @@ export default function Journey() {
     <div className="relative w-full h-full">
       {slideIndex > 0 && (
         <button
-          onClick={goBack}
+          onClick={() => setSlideIndex(slideIndex - 1)}
           className="absolute bottom-6 left-6 z-50 font-reeniebeanie text-white text-3xl sm:text-4xl hover:opacity-80 transition-all"
           aria-label="Go Back"
         >
@@ -123,9 +142,11 @@ export default function Journey() {
         </button>
       )}
 
-      <SlideContainer background={slides[slideIndex].background}>
-        {slides[slideIndex].component}
-      </SlideContainer>
+      {slides[slideIndex] && (
+        <SlideContainer background={slides[slideIndex].background}>
+          {slides[slideIndex].component}
+        </SlideContainer>
+      )}
     </div>
   );
 }
