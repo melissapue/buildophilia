@@ -1,5 +1,7 @@
 # 🧠 Ophilia – AI Branding Assistant for Creative Minds
 
+NOTE - not fully done yet
+
 **Ophilia** is a full-stack AI-powered branding assistant designed for startup founders, makers, and creatives.  
 It helps users shape their vision, brand identity, and storytelling with a psychology-informed interface and fun, sketch-inspired UX.
 
